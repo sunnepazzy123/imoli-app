@@ -2,8 +2,6 @@ import mongoose from 'mongoose';
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/imoliApp';
 
-console.log(MONGO_URI)
-
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(`${MONGO_URI}`);
