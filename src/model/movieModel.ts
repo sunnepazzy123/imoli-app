@@ -1,6 +1,6 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import { IMovies }  from '../interfaces/'
-import mongoosePaginate from 'mongoose-paginate-v2';
+import mongoosePaginate from 'mongoose-paginate';
 
 
 const moviesSchema = new Schema<IMovies>(
