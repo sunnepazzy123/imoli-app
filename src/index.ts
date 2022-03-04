@@ -13,7 +13,7 @@ async function main() {
     await connectDb();
 
     app.get('/', (req, res)=>{
-        res.send("Serving is running")
+        res.send("Serving is running");
     });
 
 
