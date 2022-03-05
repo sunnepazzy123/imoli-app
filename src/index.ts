@@ -6,7 +6,6 @@ import connectDb from './config/db';
 
 async function main() {
     
-
     const PORT = process.env.PORT || 5000;
 
     // Database execute
@@ -15,7 +14,6 @@ async function main() {
     app.get('/', (req, res)=>{
         res.send("Serving is running");
     });
-
 
     //Listening for a port
     app.listen(PORT, () => {
