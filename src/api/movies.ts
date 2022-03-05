@@ -1,8 +1,8 @@
-import { BaseResponse, IMovies } from "../interfaces";
+import { IBaseResponse, IMovies } from "../interfaces";
 import { Axios } from "./axios-setup";
 
 export const getFilms = async ()=> {
-    const { data } = await Axios.get<BaseResponse>('/films');
+    const { data } = await Axios.get<IBaseResponse>('/films');
     const result = data.results.map(({release_date, title, episode_id})=> {
         return {episode_id,title,release_date}
     });

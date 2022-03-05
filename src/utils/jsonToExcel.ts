@@ -1,7 +1,7 @@
 import XLSX from 'xlsx';
-import { IMovies } from '../interfaces';
+import { ICsvTable } from '../interfaces';
 
-export const jsonToExcelConverter = async (data: any)=>{
+export const jsonToExcelConverter = async (data: ICsvTable[])=>{
     //create a work sheet
     const worksheet = XLSX.utils.json_to_sheet(data);
     //create a workbook

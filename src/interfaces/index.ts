@@ -17,9 +17,16 @@ export interface IMovies {
     url: string;
 }
 
-export interface BaseResponse {
+export interface IBaseResponse {
     count: number;
     previous: null;
     next: null;
     results: IMovies[];
+}
+
+export interface ICsvTable {
+    id: string|number;
+    name: string;
+    release_date: string;
+    characters: [string]|string
 }

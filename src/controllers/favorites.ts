@@ -2,6 +2,7 @@ import { Request, Response } from "express"
 import { Movies } from "../api";
 import { jsonToExcelConverter } from "../utils/jsonToExcel";
 import MoviesModel from "../model/movieModel";
+import { ICsvTable, IMovies } from "../interfaces";
 
 
 export const get = async(req: Request, res: Response)=>{
@@ -28,6 +29,7 @@ export const getId = async(req: Request, res: Response)=>{
     }
 }
 
+
 export const getIdFile = async(req: Request, res: Response)=>{
     const id = +req.params.id;
     try {      
@@ -37,7 +39,7 @@ export const getIdFile = async(req: Request, res: Response)=>{
             name: result.name,
             release_date: result.release_date,
             characters: result.characters[0]
-        }
+        } as ICsvTable
         await jsonToExcelConverter([payload])
         return res.status(200).json(result);
     } catch (error) {
@@ -47,7 +49,7 @@ export const getIdFile = async(req: Request, res: Response)=>{
 
 
 export const post = async(req: Request, res: Response)=>{
-    const { id, name} = req.body
+    const { id, name} = req.body as IMovies
     try {            
         const result = await Movies.getFilmsId(id);
         result['id'] = id;
