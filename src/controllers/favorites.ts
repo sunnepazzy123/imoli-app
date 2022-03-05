@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { Movies } from "../api";
-import { jsonToExcelConverter } from "../helpers/jsonToExcel";
+import { jsonToExcelConverter } from "../utils/jsonToExcel";
 import MoviesModel from "../model/movieModel";
 
 
