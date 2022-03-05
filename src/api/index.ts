@@ -1,1 +1,1 @@
-export * as Movies from './movies';
+export * as Films from './films';

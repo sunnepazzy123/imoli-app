@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { Movies } from "../api";
+import { Films } from "../api";
 import { jsonToExcelConverter } from "../utils/jsonToExcel";
 import MoviesModel from "../model/movieModel";
 import { ICsvTable, IMovies } from "../interfaces";
@@ -51,7 +51,7 @@ export const getIdFile = async(req: Request, res: Response)=>{
 export const post = async(req: Request, res: Response)=>{
     const { id, name} = req.body as IMovies
     try {            
-        const result = await Movies.getFilmsId(id);
+        const result = await Films.getId(id);
         result['id'] = id;
         result['name'] = name;
         const data = await MoviesModel.create(result);
