@@ -1,9 +1,28 @@
 import mongoose, { Schema } from 'mongoose';
-import { IMovies }  from '../interfaces/'
 import mongoosePaginate from 'mongoose-paginate';
 
+interface IPaginate {
+    doc: IMovieDoc[];
+    total: number;
+    limit: number;
+    page: number;
+    pages: number;
+}
 
-const moviesSchema = new Schema<IMovies>(
+interface IMovieModel extends mongoose.Model<IMovieDoc, IPaginate> {
+    paginate(arr: {}, arr2: any): IPaginate;
+}
+
+interface IMovieDoc extends mongoose.Document {
+    id: number;
+    name: string;
+    title: string;
+    release_date: string;
+    characters: string;
+}
+
+
+const moviesSchema = new Schema(
     {
         id: {
             type: Number,
@@ -38,9 +57,7 @@ const moviesSchema = new Schema<IMovies>(
     }
 );
 
-
 moviesSchema.plugin(mongoosePaginate);
-const MoviesModel = mongoose.model<IMovies>('movies', moviesSchema);
-
+const MoviesModel = mongoose.model<IMovieDoc, IMovieModel>('movies', moviesSchema);
 
 export default MoviesModel;

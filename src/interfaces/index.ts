@@ -17,7 +17,7 @@ export interface IMovies {
     url: string;
 }
 
-export interface IBaseResponse {
+export interface ISwapiResponse {
     count: number;
     previous: null;
     next: null;
